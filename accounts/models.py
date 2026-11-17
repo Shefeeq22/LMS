@@ -5,9 +5,14 @@ from django.db.models.signals import post_save
 # Create your models here.
 class User(AbstractUser):
 
+    ROLE_CHOICES = (
+        ("Trainer","Trainer"),
+        ("Student","Student")
+    )
+
     phone = models.CharField(max_length = 15,unique = True)
 
-    role = models.CharField(max_length = 100)
+    role = models.CharField(max_length = 100,choices = ROLE_CHOICES)
 
 class StudentProfile(models.Model):
 
