@@ -31,7 +31,7 @@ class StudentProfile(models.Model):
 
     profile_picture = models.ImageField(upload_to = "profile_pictures",null = True)
 
-    owner = models.ForeignKey(User,on_delete = models.CASCADE,related_name = "profile")
+    student_id = models.ForeignKey(User,on_delete = models.CASCADE,related_name = "profile")
 
 class TrainerProfile(models.Model):
 
@@ -43,7 +43,7 @@ class TrainerProfile(models.Model):
 
     experience = models.CharField(max_length = 100,null = True)
 
-    owner = models.ForeignKey(User,on_delete = models.CASCADE,related_name = "proflies")
+    trainer_id = models.ForeignKey(User,on_delete = models.CASCADE,related_name = "profile")
 
 def create_user_profile(sender,instance,created,**kwargs):
 
