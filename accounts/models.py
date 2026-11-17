@@ -31,7 +31,7 @@ class StudentProfile(models.Model):
 
     profile_picture = models.ImageField(upload_to = "profile_pictures",null = True)
 
-    student_id = models.ForeignKey(User,on_delete = models.CASCADE,related_name = "profile")
+    student_id = models.OneToOneField(User,on_delete = models.CASCADE,related_name = "student_profile")
 
 class TrainerProfile(models.Model):
 
@@ -43,20 +43,19 @@ class TrainerProfile(models.Model):
 
     experience = models.CharField(max_length = 100,null = True)
 
-    trainer_id = models.ForeignKey(User,on_delete = models.CASCADE,related_name = "profile")
+    trainer_id = models.OneToOneField(User,on_delete = models.CASCADE,related_name = "trainer_profile")
 
-def create_user_profile(sender,instance,created,**kwargs):
+def create_profile(sender,instance,created,**kwargs):
 
-    if created:
+    if instance.role == "Student":
 
         StudentProfile.objects.create(student_id = instance)
 
-post_save.connect(create_user_profile,sender = User)
-
-def create_trainer_profile(sender,instance,created,**kwargs):
-
-    if created:
+    elif instance.role == "Trainer":
 
         TrainerProfile.objects.create(trainer_id = instance)
 
-post_save.connect(create_trainer_profile,sender = User)
+post_save.connect(create_profile,sender = User)
+
+
+

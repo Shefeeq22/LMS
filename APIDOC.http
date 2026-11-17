@@ -1,0 +1,12 @@
+#api call for register trainer
+###
+POST http://127.0.0.1:8000/accounts/register/
+Content-Type: application/json
+
+{
+    "username":"imran",
+    "email":"imran11@gmail.com",
+    "password":"Imran@123",
+    "phone":"6703137720",
+    "role":"Trainer"
+}
