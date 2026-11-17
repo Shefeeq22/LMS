@@ -49,7 +49,7 @@ def create_user_profile(sender,instance,created,**kwargs):
 
     if created:
 
-        StudentProfile.objects.create(owner = instance)
+        StudentProfile.objects.create(student_id = instance)
 
 post_save.connect(create_user_profile,sender = User)
 
@@ -57,6 +57,6 @@ def create_trainer_profile(sender,instance,created,**kwargs):
 
     if created:
 
-        TrainerProfile.objects.create(owner = instance)
+        TrainerProfile.objects.create(trainer_id = instance)
 
 post_save.connect(create_trainer_profile,sender = User)
