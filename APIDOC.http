@@ -10,3 +10,45 @@ Content-Type: application/json
     "phone":"6703137720",
     "role":"Trainer"
 }
+
+#api call for fetch token
+###
+POST http://127.0.0.1:8000/accounts/token/
+Content-Type: application/json
+
+{
+    "username":"imran",
+    "password":"Imran@123"
+}
+
+#api call for list trainer's credentials
+###
+GET http://127.0.0.1:8000/accounts/me/
+Accept: application/json
+Authorization: Token daafaccf3b42b73c0b201510192d12ed2c5da9ad
+
+#api call for list all trainer profile
+###
+GET http://127.0.0.1:8000/trainer/profile/
+Accept: application/json
+
+#api call for retrieve trainer profile
+###
+GET http://127.0.0.1:8000/trainer/profile/3/
+Accept: application/json
+Authorization: Token daafaccf3b42b73c0b201510192d12ed2c5da9ad
+
+#api call for update trainer profile
+###
+PUT http://127.0.0.1:8000/trainer/profile/3/
+Content-Type: application/json
+Authorization: Token daafaccf3b42b73c0b201510192d12ed2c5da9ad
+
+{
+  "id": 3,
+  "email": "imran13@gmail.com",
+  "phone_number": 9703137720,
+  "profession": "web developer",
+  "experience": 3,
+  "trainer_id": 6
+}
