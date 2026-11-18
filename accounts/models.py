@@ -1,6 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import AbstractUser
 from django.db.models.signals import post_save
+from django.core.mail import send_mail
 
 # Create your models here.
 class User(AbstractUser):
@@ -56,6 +57,23 @@ def create_profile(sender,instance,created,**kwargs):
         TrainerProfile.objects.create(trainer_id = instance)
 
 post_save.connect(create_profile,sender = User)
+
+def send_mail_to_user(sender,instance,created,**kwargs):
+
+    if created:
+
+        send_mail(
+
+            subject = "account invitation",
+
+            from_email = "mylap1819@gmail.com",
+
+            recipient_list = ["shafeeqcheppu92@gmail.com"],
+
+            message = "your profile is created"
+        )
+
+post_save.connect(send_mail_to_user,sender = User)
 
 
 

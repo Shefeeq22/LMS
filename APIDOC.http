@@ -4,11 +4,11 @@ POST http://127.0.0.1:8000/accounts/register/
 Content-Type: application/json
 
 {
-    "username":"imran",
-    "email":"imran11@gmail.com",
-    "password":"Imran@123",
-    "phone":"6703137720",
-    "role":"Trainer"
+    "username":"jabir",
+    "email":"jabir12@gmail.com",
+    "password":"Jabir@123",
+    "phone":"6203137720",
+    "role":"Student"
 }
 
 #api call for fetch token
