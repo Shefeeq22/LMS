@@ -27,11 +27,6 @@ GET http://127.0.0.1:8000/accounts/me/
 Accept: application/json
 Authorization: Token daafaccf3b42b73c0b201510192d12ed2c5da9ad
 
-#api call for list all trainer profile
-###
-GET http://127.0.0.1:8000/trainer/profile/
-Accept: application/json
-
 #api call for retrieve trainer profile
 ###
 GET http://127.0.0.1:8000/trainer/profile/3/

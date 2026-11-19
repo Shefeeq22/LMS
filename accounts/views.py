@@ -30,12 +30,6 @@ class AuthUserDetailView(APIView):
 
         return Response(serializer_instance.data)
 
-class TrainerProfileListView(ListAPIView):
-
-    serializer_class = TrainerProfileSerilaizer
-
-    queryset = TrainerProfile.objects.all()
-
 class TrainerProfileRetrieveUpdateView(RetrieveUpdateAPIView):
 
     authentication_classes = [authentication.TokenAuthentication]
