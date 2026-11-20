@@ -17,8 +17,8 @@ POST http://127.0.0.1:8000/accounts/token/
 Content-Type: application/json
 
 {
-    "username":"imran",
-    "password":"Imran@123"
+    "username":"saneesh",
+    "password":"Saneesh@123"
 }
 
 #api call for list trainer's credentials
@@ -29,21 +29,40 @@ Authorization: Token daafaccf3b42b73c0b201510192d12ed2c5da9ad
 
 #api call for retrieve trainer profile
 ###
-GET http://127.0.0.1:8000/trainer/profile/3/
+GET http://127.0.0.1:8000/trainer/profile/2/
 Accept: application/json
-Authorization: Token daafaccf3b42b73c0b201510192d12ed2c5da9ad
+Authorization: Token 16ed9669ba54accdbad1c80f686bb72be242a114
 
 #api call for update trainer profile
 ###
-PUT http://127.0.0.1:8000/trainer/profile/3/
+PUT http://127.0.0.1:8000/trainer/profile/2/
+Content-Type: application/json
+Authorization: Token 16ed9669ba54accdbad1c80f686bb72be242a114
+
+{
+  "id": 2,
+  "email": null,
+  "phone_number": 9988775511,
+  "profession": "AI Engineer",
+  "experience": 1,
+  "trainer_id": 5
+}
+
+#api call for create courses
+###
+POST http://127.0.0.1:8000/courses/
 Content-Type: application/json
 Authorization: Token daafaccf3b42b73c0b201510192d12ed2c5da9ad
 
 {
-  "id": 3,
-  "email": "imran13@gmail.com",
-  "phone_number": 9703137720,
-  "profession": "web developer",
-  "experience": 3,
-  "trainer_id": 6
+    "title":"Django",
+    "description":"Introduction to Django",
+    "duration":1.5,
+    "fee":45000
 }
+
+#api call for list course details
+###
+GET http://127.0.0.1:8000/courses/
+Accept: application/json
+Authorization: Token daafaccf3b42b73c0b201510192d12ed2c5da9ad
