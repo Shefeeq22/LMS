@@ -21,6 +21,7 @@ from rest_framework.authtoken.views import ObtainAuthToken
 from accounts.views import AuthUserDetailView
 from accounts.views import TrainerProfileRetrieveUpdateView
 from education.views import CourseListCreateView
+from education.views import CourseRetrieveUpdateView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -29,4 +30,5 @@ urlpatterns = [
     path('accounts/me/',AuthUserDetailView.as_view()),
     path('trainer/profile/<int:pk>/',TrainerProfileRetrieveUpdateView.as_view()),
     path('courses/',CourseListCreateView.as_view()),
+    path('courses/<int:pk>/',CourseRetrieveUpdateView.as_view()),
 ]

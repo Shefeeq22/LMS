@@ -66,3 +66,25 @@ Authorization: Token daafaccf3b42b73c0b201510192d12ed2c5da9ad
 GET http://127.0.0.1:8000/courses/
 Accept: application/json
 Authorization: Token daafaccf3b42b73c0b201510192d12ed2c5da9ad
+
+#api call for retrieve a single course detail
+###
+GET http://127.0.0.1:8000/courses/1/
+Accept: application/json
+Authorization: Token daafaccf3b42b73c0b201510192d12ed2c5da9ad
+
+#api call for update course
+###
+PUT http://127.0.0.1:8000/courses/1/
+Content-Type: application/json
+Authorization: Token daafaccf3b42b73c0b201510192d12ed2c5da9ad
+
+{
+  "id": 1,
+  "title": "Python Full Stack Web Development",
+  "description": "Learn Python and Django",
+  "duration": 2.0,
+  "fee": 48500,
+  "cover_picture": null,
+  "trainer": 6
+}
