@@ -88,3 +88,14 @@ Authorization: Token daafaccf3b42b73c0b201510192d12ed2c5da9ad
   "cover_picture": null,
   "trainer": 6
 }
+
+#api call for create module
+###
+POST http://127.0.0.1:8000/courses/1/modules/
+Content-Type: application/json
+Authorization: Token daafaccf3b42b73c0b201510192d12ed2c5da9ad
+
+{
+  "title":"Django Web Development",
+  "description":"Learn Django framework, models, views, templates, URL routing, forms, authentication, REST APIs, serializers, and database integration"
+}

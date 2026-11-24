@@ -5,7 +5,7 @@ from accounts.models import User
 # Create your models here.
 class Course(models.Model):
 
-    title = models.CharField(max_length = 100)
+    title = models.CharField(max_length = 300)
 
     description = models.TextField(null = True)
 
@@ -16,3 +16,11 @@ class Course(models.Model):
     cover_picture = models.ImageField(null = True)
 
     trainer = models.ForeignKey(User,on_delete = models.CASCADE,related_name = "courses")
+
+class Module(models.Model):
+
+    title = models.CharField(max_length = 100)
+
+    description = models.TextField(null = True)
+
+    course = models.ForeignKey(Course,on_delete = models.CASCADE,related_name = "modules")

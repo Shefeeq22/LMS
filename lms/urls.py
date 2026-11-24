@@ -22,6 +22,7 @@ from accounts.views import AuthUserDetailView
 from accounts.views import TrainerProfileRetrieveUpdateView
 from education.views import CourseListCreateView
 from education.views import CourseRetrieveUpdateView
+from education.views import ModuleCreateView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -31,4 +32,5 @@ urlpatterns = [
     path('trainer/profile/<int:pk>/',TrainerProfileRetrieveUpdateView.as_view()),
     path('courses/',CourseListCreateView.as_view()),
     path('courses/<int:pk>/',CourseRetrieveUpdateView.as_view()),
+    path('courses/<int:pk>/modules/',ModuleCreateView.as_view()),
 ]
