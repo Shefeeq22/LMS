@@ -24,3 +24,13 @@ class Module(models.Model):
     description = models.TextField(null = True)
 
     course = models.ForeignKey(Course,on_delete = models.CASCADE,related_name = "modules")
+
+class Lesson(models.Model):
+
+    title = models.CharField(max_length = 100)
+
+    content = models.TextField(null = True)
+
+    url = models.URLField(null = True)
+
+    module = models.ForeignKey(Module,on_delete = models.CASCADE,related_name = "lessons")

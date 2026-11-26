@@ -7,5 +7,17 @@ class IsOwner(BasePermission):
         return request.user.is_authenticated
 
     def has_object_permission(self, request, view, obj):
-        
-        return obj.trainer == request.user
+
+        if hasattr(obj,"trainer"):
+
+            return obj.trainer == request.user
+
+        elif hasattr(obj,"course"):
+
+            return obj.course.trainer == request.user
+
+        elif hasattr(obj,"module"):
+
+            return obj.module.course.trainer == request.user
+
+        return False

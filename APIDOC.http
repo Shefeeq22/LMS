@@ -69,33 +69,87 @@ Authorization: Token daafaccf3b42b73c0b201510192d12ed2c5da9ad
 
 #api call for retrieve a single course detail
 ###
-GET http://127.0.0.1:8000/courses/1/
+GET http://127.0.0.1:8000/courses/2/
 Accept: application/json
 Authorization: Token daafaccf3b42b73c0b201510192d12ed2c5da9ad
 
 #api call for update course
 ###
-PUT http://127.0.0.1:8000/courses/1/
+PUT http://127.0.0.1:8000/courses/2/
 Content-Type: application/json
 Authorization: Token daafaccf3b42b73c0b201510192d12ed2c5da9ad
 
 {
-  "id": 1,
-  "title": "Python Full Stack Web Development",
-  "description": "Learn Python and Django",
-  "duration": 2.0,
-  "fee": 48500,
+  "id": 2,
+  "title": "Data Science",
+  "description": "Learn data science fundamentals, Python for data analysis, data visualization, statistics, machine learning, and data-driven decision making.",
+  "duration": 2,
+  "fee": 85000,
   "cover_picture": null,
-  "trainer": 6
+  "trainer": 6,
+  "modules": []
 }
 
-#api call for create module
+#api call for add module to course
 ###
-POST http://127.0.0.1:8000/courses/1/modules/
+POST http://127.0.0.1:8000/courses/2/modules/
 Content-Type: application/json
 Authorization: Token daafaccf3b42b73c0b201510192d12ed2c5da9ad
 
 {
-  "title":"Django Web Development",
-  "description":"Learn Django framework, models, views, templates, URL routing, forms, authentication, REST APIs, serializers, and database integration"
+  "title":"Data Analysis and Visualization",
+  "description":"Learn data analysis using NumPy and Pandas, data cleaning, data manipulation, statistical analysis, and data visualization using Matplotlib and Seaborn."
 }
+
+#api call for list a single module
+###
+GET http://127.0.0.1:8000/modules/2/
+Accept: application/json
+Authorization: Token daafaccf3b42b73c0b201510192d12ed2c5da9ad
+
+#api call for update module
+###
+PUT http://127.0.0.1:8000/modules/2/
+Content-Type: application/json
+Authorization: Token daafaccf3b42b73c0b201510192d12ed2c5da9ad
+
+{
+  "id": 2,
+  "title": "Django Web Development",
+  "description": "Learn Django framework, models, views, URL routing, forms, authentication, REST APIs, serializers, and database integration",
+  "course": 1
+}
+
+#api call for add lesson to module
+###
+POST http://127.0.0.1:8000/modules/4/lessons/
+Content-Type: application/json
+Authorization: Token daafaccf3b42b73c0b201510192d12ed2c5da9ad
+
+{
+  "title": "Exploratory Data Analysis (EDA)",
+  "content": "Learn how to perform exploratory data analysis by understanding dataset structure, identifying patterns, detecting outliers, analyzing correlations, and summarizing data using statistical methods and visualizations.",
+  "url":"https://www.kaggle.com/learn/intro-to-data-science"
+}
+
+#api call for retrieve a lesson
+###
+GET http://127.0.0.1:8000/lessons/2/
+Accept: application/json
+Authorization: Token daafaccf3b42b73c0b201510192d12ed2c5da9ad
+
+#api call for update lesson
+###
+PUT http://127.0.0.1:8000/lessons/2/
+Content-Type: application/json
+Authorization: Token daafaccf3b42b73c0b201510192d12ed2c5da9ad
+
+{
+  "id": 2,
+  "title": "Variables and Data Types",
+  "content": "Understand variables, naming rules, and Python data types such as int, float, str, bool, list, tuple, set, and dictionary.",
+  "url": "https://www.w3schools.com/python/python_datatypes.asp",
+  "module": 1
+}
+
+
